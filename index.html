@@ -15,8 +15,8 @@
         <h2>Select a Character</h2>
 
         <div>
-            <img class="character_select" id="selected" src="./img/steve.png" alt="steve" width="75px" height="150px">
-            <img class="character_select" src="./img/alex.png" alt="alex" width="75px" height="150px">
+            <img class="character_select selected" id="steveBtn" src="./img/steve.png" alt="steve" width="75px" height="150px">
+            <img class="character_select" id="alexBtn" src="./img/alex.png" alt="alex" width="75px" height="150px">
         </div>
 
         <hr>
@@ -24,12 +24,25 @@
         <h2>Fishing</h2>
 
         <div>
-            <button>Fish 1x</button>
-            <button>Fish 5x</button>
-            <button>Fish until 200x Cod</button>
+            <button id="fish1">Fish 1x</button>
+            <button id="fish5">Fish 5x</button>
+            <button id="fish200">Fish until 200x Cod</button>
         </div>
 
-        <img src="./img/Fishing_Rod.png" alt="fishingResult">
+        <img src="./img/Fishing_Rod.png" alt="Fishing Result" id="fishingResult">
+
+        <p>
+            <img src="./img/Raw_Cod.png" alt="Raw Cod" width="30px" height="30px"> Raw Cod:
+            <span class="fishNum">0</span>
+            |<img src="./img/Raw_Salmon.png" alt="Raw Salmon" width="30px" height="30px"> Raw Salmon:
+            <span class="fishNum">0</span>
+        </p>
+        <p>
+            <img src="./img/Tropical_Fish.png" alt="Tropical Fish" width="30px" height="30px"> Tropical Fish:
+            <span class="fishNum">0</span>
+            |<img src="./img/Pufferfish.png" alt="Pufferfish" width="30px" height="30px"> Pufferfish:
+            <span class="fishNum">0</span>
+        </p>
 
         <script src="./main.js"></script>
     </body>
