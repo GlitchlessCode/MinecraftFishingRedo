@@ -10,11 +10,13 @@ let fishResult = document.getElementById("fishingResult");
 
 let outElements = Array.from(document.getElementsByClassName("fishNum"));
 
-let imgArray = Array.from({length:4}, () => new Image());
-imgArray[0].src = "./img/Raw_Cod.png";
-imgArray[1].src = "./img/Raw_Salmon.png";
-imgArray[2].src = "./img/Tropical_Fish.png";
-imgArray[3].src = "./img/Pufferfish.png";
+let imgArray = new Array(4);
+imgArray[0] = "./img/Raw_Cod.png";
+imgArray[1] = "./img/Raw_Salmon.png";
+imgArray[2] = "./img/Tropical_Fish.png";
+imgArray[3] = "./img/Pufferfish.png";
+
+let fish = [0,0,0,0];
 
 let character = "steve"
 
@@ -22,7 +24,9 @@ let character = "steve"
 steve.addEventListener('click', setCharacter);
 alex.addEventListener('click', setCharacter);
 
-fish1.addEventListener('click', fishOnce)
+fish1.addEventListener('click', fishOnce);
+fish5.addEventListener('click', fishFive);
+fish200.addEventListener('click', fishTwoHundred);
 
 // Functions
 
@@ -38,14 +42,27 @@ function getOppositeCharacter (string) {
     return string==="steve" ? alex : steve;
 }
 
-async function fishOnce() {
+function fishOnce() {
     let num;
     if(character==="steve") {
-        num = Math.floor(Math.random()*2**2);
+        num = Math.floor(Math.random()**2*4);
     } else {
         num = Math.floor(Math.random()*4);
     }
-    console.log(num);
-    outElements[num].innerHTML += 1;
-    fishResult = imgArray[num];
+    fish[num]++;
+    fishResult.src = imgArray[num];
+    outElements[num].innerHTML = fish[num];
+}
+
+function fishFive() {
+    for(let i = 0; i < 5; i++){
+        fishOnce();
+    }
+}
+
+function fishTwoHundred() {
+    let newValue = fish[0]+200;
+    while(fish[0] < newValue){
+        fishOnce();
+    }
 }
